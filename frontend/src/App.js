@@ -9,6 +9,7 @@ import Orders from './pages/Orders';
 import Testimonial from './components/Testimonial';
 import { UserContext, UserProvider } from './context/UserContext';
 import { CartProvider, CartContext } from './context/CartContext';
+import FloatingCartButton from './components/FloatingCartButton';
 
 const AppRoutes = () => {
   const { user, setUser } = useContext(UserContext);
@@ -32,6 +33,8 @@ const AppRoutes = () => {
         <Route path="/orders" element={user ? <Orders /> : <Navigate to="/login" />} />
         <Route path="/" element={<Navigate to="/menu" />} />
       </Routes>
+      {/* Show floating cart button except on cart page */}
+      {window.location.pathname !== '/cart' && user && <FloatingCartButton />}
     </Router>
   );
 };
