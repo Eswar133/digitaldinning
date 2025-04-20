@@ -1,3 +1,4 @@
+console.log('=== [DEBUG] app.js loaded ===');
 const express = require('express');
 const cors = require('cors');
 const { connectMongo, sequelize } = require('./config/db');

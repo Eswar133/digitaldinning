@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": "cQChFzho7Vw79rWYOBoIayjGWBJXWVI2",
+    "database": "digitaldining",
+    "host": "dpg-d028o5ruibrs73akl900-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}

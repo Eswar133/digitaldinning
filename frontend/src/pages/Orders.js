@@ -74,6 +74,9 @@ const Orders = () => {
                 <div className="order-header">
                   <span>Order #{order.id}</span>
                   <span className="order-date">{new Date(order.created_at).toLocaleString()}</span>
+                  <span className="order-table" style={{marginLeft: '1rem', color: '#b57f1b', fontWeight: 500}}>
+                    Table: {order.table_number ?? localStorage.getItem('lastTableNumber') ?? 'N/A'}
+                  </span>
                 </div>
                 <div className="order-items">
                   {order.OrderItems.map(item => (

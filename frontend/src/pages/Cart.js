@@ -11,6 +11,7 @@ const Cart = () => {
   const [phone, setPhone] = useState('');
   const [modal, setModal] = useState(false);
   const [orderId, setOrderId] = useState(null);
+  const [tableNumber, setTableNumber] = useState(1);
   const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -20,11 +21,13 @@ const Cart = () => {
       const res = await API.post('/orders', {
         userId: user.id,
         phone_number: phone,
-        cart
+        cart,
+        table_number: tableNumber
       }, { headers: { Authorization: `Bearer ${user.token}` } });
       setOrderId(res.data.orderId);
       setModal(true);
       setCart([]);
+      localStorage.setItem('lastTableNumber', tableNumber);
     } catch (err) {
       alert(err.response?.data?.message || 'Order failed');
     }
@@ -58,6 +61,17 @@ const Cart = () => {
           </ul>
           <div>Total: ₹{total}</div>
           <div>
+            <label htmlFor="table-number">Table Number:</label>
+            <input
+              id="table-number"
+              type="number"
+              min="1"
+              max="30"
+              value={tableNumber}
+              onChange={e => setTableNumber(Number(e.target.value))}
+              required
+              style={{ width: 80, marginRight: 10 }}
+            />
             <input type="text" placeholder="Phone Number" value={phone} onChange={e => setPhone(e.target.value)} required />
             <button onClick={handleOrder}>Place Order</button>
           </div>

@@ -8,6 +8,7 @@ const Order = sequelize.define('Order', {
   user_id: { type: DataTypes.INTEGER, allowNull: false },
   phone_number: { type: DataTypes.STRING, allowNull: false },
   total_price: { type: DataTypes.FLOAT, allowNull: false },
+  table_number: { type: DataTypes.INTEGER, allowNull: true },
   created_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
 }, {
   tableName: 'orders',
