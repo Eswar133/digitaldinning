@@ -26,7 +26,7 @@ Digital Diner lets users browse a categorized menu, add items to a cart, and pla
 2. **Configure API URL:**
    Create a `.env` file in `/frontend`:
    ```
-   REACT_APP_API_URL=http://localhost:5000/api
+   REACT_APP_API_URL=https://digitaldinning.onrender.com
    ```
    (Change the URL if your backend is running elsewhere)
 3. **Start the frontend:**
@@ -40,6 +40,10 @@ Digital Diner lets users browse a categorized menu, add items to a cart, and pla
 ## Deployment
 - Deploy the `/frontend` directory to Netlify or your preferred static hosting.
 - Ensure your backend API is accessible from the deployed site (update `REACT_APP_API_URL` if needed).
+- For Netlify CLI deployment:
+   ```bash
+   netlify deploy --prod
+   ```
 
 ---
 

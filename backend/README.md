@@ -46,19 +46,19 @@ Digital Diner is a full-stack web application for a restaurant to manage online 
 2. **Configure environment:**
    Create a `.env` file in `/backend`:
    ```
-   PG_URI=postgres://postgres:YOUR_PASSWORD@localhost:5432/foodapp
-   MONGO_URI=mongodb://localhost:27017/foodapp
+   PG_URI=your_postgresql_connection_string
+   MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret
    ```
-3. **Start backend server:**
+3. **Run migrations & seed menu:**
+   ```bash
+   npx sequelize-cli db:migrate
+   node utils/seed_menu_mongo.js
+   ```
+4. **Start backend server:**
    ```bash
    npm run dev
    ```
-4. **Seed menu items:**
-   ```bash
-   node seedMenu.js
-   ```
-5. **(Optional) Change ports or DB settings in `.env` as needed.**
 
 ---
 
@@ -71,7 +71,7 @@ Digital Diner is a full-stack web application for a restaurant to manage online 
 2. **Configure API URL:**
    Create `.env` in `/frontend`:
    ```
-   REACT_APP_API_URL=http://localhost:5000/api
+   REACT_APP_API_URL=https://digitaldinning.onrender.com
    ```
 3. **Start frontend:**
    ```bash
