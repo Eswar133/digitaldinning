@@ -11,7 +11,12 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
-app.use(cors({ origin: '*' })); // Set to Netlify URL in production
+app.use(cors({
+  origin: [
+    'https://digital-dining-app.windsurf.build', // Netlify production
+    'http://localhost:3000' // Local development
+  ]
+})); // Set to Netlify URL in production
 app.use(express.json());
 
 app.use('/api/menu', menuRoutes);
